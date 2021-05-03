@@ -25,7 +25,7 @@ const Input: React.FunctionComponent<IPropsInput> = (props) => {
   }
 
   return (
-    <div className="input-field mt-2 ml-12 mr-12">
+    <div className="input-field mt-2 ml-12 mr-12 animate__fade">
       <input onKeyPress={keyPressHandler} onChange={changeHandler} value={title} type="text" id="title" />
       <label htmlFor="title" className="active">New todo</label>&ensp;
       <button onClick={addHandlerButton} className="btn">Add</button>

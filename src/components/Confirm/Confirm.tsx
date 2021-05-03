@@ -9,7 +9,7 @@ interface IPropsConfirm {
 const EditForm: React.FunctionComponent<IPropsConfirm> = (props) => {
 
   return (
-    <div className="confirm">
+    <div className="confirm animate__animated animate__fadeInLeft">
       <div>Are you sure you want to delete this item?</div>
       <div>
         <span>

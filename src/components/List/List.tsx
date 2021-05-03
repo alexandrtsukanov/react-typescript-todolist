@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Todo from '../Todo/Todo';
 import { ITodo } from '../../interfaces';
 
@@ -11,10 +11,14 @@ interface IPropsList {
 
 const List: React.FunctionComponent<IPropsList> = (props) => {
 
+  useEffect(() => {
+
+  }, []);
+
   return (
     <ul className="list center">
       {!props.todos.length && (
-        <p className="center">List of items is empty</p>
+        <p className="center animate__fadeIn">List of items is empty</p>
       )}
       {props.todos.map(({ title, id, done }) => (
           <Todo 

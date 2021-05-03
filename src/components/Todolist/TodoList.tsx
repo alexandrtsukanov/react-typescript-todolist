@@ -10,6 +10,7 @@ const Todolist: React.FunctionComponent = () => {
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('todos') || '[]') as ITodo[];
     setTodos(data);
+    initilizeTodos();
   }, [])
 
   useEffect(() => {
@@ -35,6 +36,12 @@ const Todolist: React.FunctionComponent = () => {
 
   const changeTitleHandler = (paramId: number, paramNewTitle: string) => {
     setTodos(prev => prev.map(el => el.id === paramId ? {...el, title: paramNewTitle} : el))
+  }
+
+  const initilizeTodos = (): void => {
+    setTodos(prev => prev.map(el => {
+      return {...el, done: false}
+    }));
   }
 
   return (

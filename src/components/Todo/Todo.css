@@ -1,0 +1,23 @@
+.todo {
+  color: darkblue;
+  width: 10cm;
+  text-align: left;
+}
+
+.todo:hover{
+  color: rgb(0, 0, 92);
+  font-weight: bolder;
+}
+
+.comp {
+  text-align: center;;
+  width: 13cm;
+  margin-left: 27%;
+  margin-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;  
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: lightgrey;
+  color: black;
+}

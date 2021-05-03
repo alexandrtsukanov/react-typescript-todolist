@@ -21,7 +21,7 @@ const EditForm: React.FunctionComponent<IPropsEditForm> = (props) => {
   }
 
   return (
-    <div className="edit-field">
+    <div className="edit-field animate__animated animate__fadeInLeft">
       <input onKeyPress={keyPressHandlerEdit} onChange={changeHandlerEdit} value={newTitle} type="text" />&ensp;
       <button onClick={() => props.changeTitleHandlerButton(props.id, newTitle)} className="btn">Change</button>
     </div>

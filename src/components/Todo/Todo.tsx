@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import EditForm from '../EditForm/EditForm';
 import Confirm from '../Confirm/Confirm';
+import './Todo.css'
 
 interface IPropsTodo {
   key: number
@@ -16,6 +17,8 @@ const Todo: React.FunctionComponent<IPropsTodo> = (props) => {
 
   const [elemToEdit, setElemToEdit] = useState<(number | null)>(null);
   const [elemToDelete, setElemToDelete] = useState<(number | null)>(null);
+  const [deleteIconHover, setDeleteIconHover] = useState<boolean>(false);
+  const [editIconHover, setEditIconHover] = useState<boolean>(false);
 
   const editHandler = (paramId: number) => {
     if (!elemToEdit) {
@@ -50,13 +53,19 @@ const Todo: React.FunctionComponent<IPropsTodo> = (props) => {
   return (
     
     <div className="center">
-      <div className="comp animated">
+      <div className="comp animate__animated animate__fadeIn">
         <label>
           <input onChange={() => props.crossHandler(props.id)} type="checkbox"/>
-          <span className={props.done ? "todo done" : "todo"}>{props.title}</span>
+          <span className="todo" style={{textDecoration: props.done ? 'line-through' : 'none'}}>{props.title}</span>
         </label>
-          <i onClick={() => deleteHandlerConfirm(props.id)} className="material-icons red-text">delete</i>&ensp;
-          <i onClick={() => editHandler(props.id)} className="material-icons green-text">edit</i>&ensp;
+          <i onClick={() => deleteHandlerConfirm(props.id)} 
+            onMouseEnter={() => setDeleteIconHover(true)} 
+            onMouseLeave={() => setDeleteIconHover(false)} 
+            className="material-icons" style={{color: deleteIconHover ? 'darkred' : 'red'}}>delete</i>&ensp;
+          <i onClick={() => editHandler(props.id)} 
+            onMouseEnter={() => setEditIconHover(true)} 
+            onMouseLeave={() => setEditIconHover(false)}
+            className="material-icons" style={{color: editIconHover ? 'darkgreen' : 'green'}}>edit</i>&ensp;
       </div>
 
       {elemToEdit ?
