@@ -11,10 +11,6 @@ interface IPropsList {
 
 const List: React.FunctionComponent<IPropsList> = (props) => {
 
-  useEffect(() => {
-
-  }, []);
-
   return (
     <ul className="list center">
       {!props.todos.length && (
